@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         /*
          * DataBindUtil.setContentView replaces our normal call of setContent view.
          * DataBindingUtil also created our ActivityMainBinding that we will eventually use to
@@ -34,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private void displayBoardingPassInfo(BoardingPassInfo info) {
 
         mainBinding.textViewPassengerName.setText(info.passengerName);
-        mainBinding.textViewOriginAirport.setText(info.originCode);
-        mainBinding.textViewFlightCode.setText(info.flightCode);
-        mainBinding.textViewDestinationAirport.setText(info.destCode);
+        mainBinding.flightInfo.textViewOriginAirport.setText(info.originCode);
+        mainBinding.flightInfo.textViewFlightCode.setText(info.flightCode);
+        mainBinding.flightInfo.textViewDestinationAirport.setText(info.destCode);
 
         SimpleDateFormat formatter = new SimpleDateFormat(getString(R.string.timeFormat), Locale.getDefault());
         String boardingTime = formatter.format(info.boardingTime);
@@ -57,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 minutesLessHoursUntilBoarding);
 
         mainBinding.textViewBoardingInCountdown.setText(hoursAndMinutesUntilBoarding);
-        mainBinding.textViewTerminal.setText(info.departureTerminal);
-        mainBinding.textViewGate.setText(info.departureGate);
-        mainBinding.textViewSeat.setText(info.seatNumber);
+        mainBinding.boardingInfo.textViewTerminal.setText(info.departureTerminal);
+        mainBinding.boardingInfo.textViewGate.setText(info.departureGate);
+        mainBinding.boardingInfo.textViewSeat.setText(info.seatNumber);
 
     }
 }
